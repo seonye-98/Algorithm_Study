@@ -24,7 +24,7 @@ class Solution(object):
         answer = self.node2list(list1) + self.node2list(list2)
         answer.sort()
     
-        head=ListNode(-1)
+        head = ListNode(-1)
         cursor = head
         
         for item in answer:
