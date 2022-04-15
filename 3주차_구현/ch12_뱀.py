@@ -1,5 +1,7 @@
 '''
 이취코테 p327 실전문제: 뱀
+
+미완성
 '''
 import time
 start_time = time.time() #측정 시작
