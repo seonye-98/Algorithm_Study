@@ -5,59 +5,61 @@
 '''
 import time
 start_time = time.time() #측정 시작
+from collections import deque
 
-N = int(input())
-K = int(input())
-apple = []
-for _ in range(K):
-  tmp = list(map(int,input().split()))
-  apple.append([tmp[0]-1, tmp[1]-1])
-L = int(input())
-move = {}
 
-for _ in range(L):
-  tmp = list(input().split())
-  move[tmp[0]] = tmp[1]
-
-start_time = time.time() #측정 시작
-
-_time = 0
-start_pos = [0, 0]
-end_pos = [0, 0]
-idx = 0
-#동, 남, 서, 북
-dx = [0, 1 , 0, -1]
-dy = [1, 0, -1, 0]
-
-print(apple, move)
-
-while True:
-  if _time in map(int,move.keys()):
-    print('rotate')
-    if move[str(_time)] == 'D':
-      idx += 1
-    elif move [str(_time)] == 'L':
-      idx -= 1
-  if idx < 0:
-    idx = 4+idx
-  
-  start_pos[0] += dx[idx]
-  start_pos[1] += dy[idx]
-
-  if start_pos[0] < 0 or start_pos[0] > N-1 or start_pos[1] < 0 or start_pos[1] > N-1 :
-    break
-  else:
-    if start_pos in apple:
-      apple.remove(start_pos)
-      _time += 1
+def change(d, c):
+    # 상(0) 우(1) 하(2) 좌(3)
+    # 동쪽 회전: 상(0) -> 우(1) -> 하(2) -> 좌(3) -> 상(0) : +1 방향
+    # 왼쪽 회전: 상(0) -> 좌(3) -> 하(2) -> 우(1) -> 상(0) : -1 방향
+    if c == "L":
+        d = (d - 1) % 4
     else:
-      end_pos[0] += dx[idx]
-      end_pos[1] += dy[idx]
-  
-  print(start_pos, end_pos)
-  _time += 1
+        d = (d + 1) % 4
+    return d
 
-print(_time)
+
+# 상 우 하 좌
+dy = [-1, 0, 1, 0]
+dx = [0, 1, 0, -1]
+
+
+def start():
+    direction = 1  # 초기 방향
+    time = 1  # 시간
+    y, x = 0, 0  # 초기 뱀 위치
+    visited = deque([[y, x]])  # 방문 위치
+    arr[y][x] = 2
+    while True:
+        y, x = y + dy[direction], x + dx[direction]
+        if 0 <= y < N and 0 <= x < N and arr[y][x] != 2:
+            if not arr[y][x] == 1:  # 사과가 없는 경우
+                temp_y, temp_x = visited.popleft()
+                arr[temp_y][temp_x] = 0  # 꼬리 제거
+            arr[y][x] = 2
+            visited.append([y, x])
+            if time in times.keys():
+                direction = change(direction, times[time])
+            time += 1
+        else:  # 본인 몸에 부딪히거나, 벽에 부딪힌 경우
+            return time
+
+
+if __name__ == "__main__":
+
+    # input
+    N = int(input())
+    K = int(input())
+    arr = [[0] * N for _ in range(N)]
+    for _ in range(K):
+        a, b = map(int, input().split())
+        arr[a - 1][b - 1] = 1  # 사과 저장
+    L = int(input())
+    times = {}
+    for i in range(L):
+        X, C = input().split()
+        times[int(X)] = C
+    print(start())
 
 end_time = time.time()
 print(f"{end_time - start_time:.5f} sec")#수행 시간 출력

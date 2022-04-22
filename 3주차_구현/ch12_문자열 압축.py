@@ -4,6 +4,32 @@
 import time
 start_time = time.time() #측정 시작
 
+import re
+
+def solution(s):
+    if len(s) <= 2:
+        return len(s)
+    resultCount = []
+    for i in range(1, len(s)//2 + 1):
+        reList = re.sub('(\w{%i})' %i, '\g<1> ', s).split()
+        count = 1
+        result = []
+        for j in range(len(reList)):
+            if j < len(reList)-1 and reList[j] == reList[j+1]:
+                count += 1
+            else:
+                if count == 1:
+                    result.append(reList[j])
+                else:
+                    result.append(str(count) + reList[j])
+                    count = 1
+
+        resultCount.append(len(''.join(result)))
+    
+    return min(resultCount)
+
+'''
+88점
 from collections import Counter
 
 def solution(s):
@@ -32,6 +58,9 @@ def solution(s):
         answer = min(answer, len(s)-value_sum*i + key_len + ten_up)
         #print(answer, len(s)-value_sum*i + key_len)
     return answer
+'''
 
 end_time = time.time()
 print(f"{end_time - start_time:.5f} sec")#수행 시간 출력
+
+
