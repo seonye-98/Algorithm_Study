@@ -18,5 +18,3 @@ https://github.com/tony9402/baekjoon
 풀이 기록
 
 노션 링크 : https://seonye.notion.site/_-ae917ce0c5dd4d7f852051d5655ae9f7?pvs=4
-문제 풀이 회고
-자료구조 : https://github.com/kss02281/Algorithm_Study/blob/main/2023_Solved/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/%EB%AC%B8%EC%A0%9C%ED%92%80%EC%9D%B4%20%ED%9A%8C%EA%B3%A0.md
