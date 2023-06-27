@@ -14,3 +14,7 @@
 https://github.com/tony9402/baekjoon
 
 추천 문제 위주로 풀이하고 부족한 알고리즘은 문제집 전체 문제를 풀이할 예정이다.
+
+풀이 기록
+
+노션 링크 : https://seonye.notion.site/_-ae917ce0c5dd4d7f852051d5655ae9f7?pvs=4
