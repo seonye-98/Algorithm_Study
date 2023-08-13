@@ -8,6 +8,12 @@
 
 # 2023
 
+## JavaScript로 코딩테스트 준비하기
+
+[패트스캠퍼스 강의](https://fastcampus.co.kr/dev_online_upjscodingtest)
+
+---
+
 ## [코딩테스트 대비 문제집 with Baekjoon](https://github.com/tony9402/baekjoon)
 
 추천 문제 위주로 풀이하고 부족한 알고리즘은 문제집 전체 문제를 풀이할 예정이다.<br><br>
