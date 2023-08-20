@@ -2,9 +2,6 @@ const path = require('path');
 //배열 문제 풀이
 //https://www.acmicpc.net/problem/10818
 /*
-const fs = require('fs');
-const input = fs.readFileSync(path.join(__dirname, 'dev', 'stdin')).toString().split('\n');
-
 const N = Number(input[0]);
 const numArr = input[1].split(' ').map(Number);
 let min = numArr.reduce((a, b) => Math.min(a, b));
@@ -22,8 +19,6 @@ console.log(minValue, maxValue);
 */
 //https://www.acmicpc.net/problem/2562
 /*
-const fs = require('fs');
-const input = fs.readFileSync(path.join(__dirname, 'dev', 'stdin')).toString().split('\n');
 const numArr = input.map(Number);
 
 let maxVal = -1;
@@ -38,9 +33,6 @@ console.log(maxVal + '\n' + maxIdx);
 */
 //https://www.acmicpc.net/problem/3052
 /*
-const fs = require('fs');
-const input = fs.readFileSync(path.join(__dirname, 'dev', 'stdin')).toString().trim().split('\n');
-
 const numArr = input.map(Number);
 let resultSet = new Set();
 
@@ -52,9 +44,6 @@ console.log(resultSet.size);
 */
 //https://www.acmicpc.net/problem/4344
 /*
-const fs = require('fs');
-const input = fs.readFileSync(path.join(__dirname, 'dev', 'stdin')).toString().trim().split('\n');
-
 const N = Number(input[0]);
 let result = '';
 for (let i = 0; i < N; i++) {
