@@ -107,3 +107,29 @@ const input = fs
   .toString()
   .trim()
   .split('\n');
+
+const T = Number(input[0]);
+
+const fibo = [0, 1];
+
+for (let i = 1; i < T + 1; i++) {
+  let n = Number(input[i]);
+  let len = fibo.length;
+  if (fibo[len - 1] < n)
+    while (fibo[len - 1] < n) {
+      if (fibo[len - 2] + fibo[len - 1] > n) break;
+      fibo.push(fibo[len - 2] + fibo[len - 1]);
+      len++;
+    }
+
+  let answer = [];
+  for (let j = fibo.length - 1; j > -1; j--) {
+    if (n === 0) break;
+    if (n >= fibo[j]) {
+      answer.push(fibo[j]);
+      n -= fibo[j];
+    }
+  }
+  answer.sort((a, b) => a - b);
+  console.log(answer.join(' '));
+}
