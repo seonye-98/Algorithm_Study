@@ -102,34 +102,33 @@ console.log(result);
 //https://www.acmicpc.net/problem/9009
 const path = require('path');
 const fs = require('fs');
-const input = fs
-  .readFileSync(path.join(__dirname, 'dev', 'stdin'))
-  .toString()
-  .trim()
-  .split('\n');
+const input = fs.readFileSync(path.join(__dirname, 'dev', 'stdin')).toString().trim().split('\n');
 
-const T = Number(input[0]);
+const N = Number(input[0]);
 
-const fibo = [0, 1];
+const getFibonacci = (x) => {
+  let arr = [0, 1];
+  let i = 2;
+  while (arr.slice(-1) <= x) {
+    arr[i] = arr[i - 2] + arr[i - 1];
+    i += 1;
+  }
+  return arr.slice(0, -1).sort((a, b) => b - a);
+};
 
-for (let i = 1; i < T + 1; i++) {
-  let n = Number(input[i]);
-  let len = fibo.length;
-  if (fibo[len - 1] < n)
-    while (fibo[len - 1] < n) {
-      if (fibo[len - 2] + fibo[len - 1] > n) break;
-      fibo.push(fibo[len - 2] + fibo[len - 1]);
-      len++;
-    }
-
-  let answer = [];
-  for (let j = fibo.length - 1; j > -1; j--) {
-    if (n === 0) break;
-    if (n >= fibo[j]) {
-      answer.push(fibo[j]);
-      n -= fibo[j];
+for (let i = 1; i < N + 1; i++) {
+  let x = Number(input[i]);
+  let fibonacci = getFibonacci(x);
+  let result = [];
+  for (let j = 0; j < fibonacci.length - 1; j++) {
+    if (x >= fibonacci[j]) {
+      result.push(fibonacci[j]);
+      x -= fibonacci[j];
     }
   }
-  answer.sort((a, b) => a - b);
-  console.log(answer.join(' '));
+  console.log(result.reverse().join(' '));
 }
+
+let pibo = [0, 1];
+while (pibo[pibo.length - 1] < 1e9) pibo.push(pibo[pibo.length - 2] + pibo[pibo.length - 1]);
+//미리 10억까지 피보나치 수열을 구해놓고 테스트케이스를 돌리는 방법도 있다.
