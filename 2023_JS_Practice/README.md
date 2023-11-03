@@ -10,3 +10,4 @@
 - [ ] [박스 채우기](https://www.acmicpc.net/problem/1493)
 - [ ] [병사 배치하기](https://www.acmicpc.net/problem/18353)
 - [ ] [k번째 수](https://www.acmicpc.net/problem/1300)
+- [ ] [N-Queen](https://www.acmicpc.net/problem/9663)

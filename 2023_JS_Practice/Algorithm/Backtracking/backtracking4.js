@@ -10,39 +10,39 @@
 
 */
 
-const path = require('path');
-const fs = require('fs');
-const input = fs.readFileSync(path.join(__dirname, 'dev', 'stdin')).toString().trim().split('\n');
+// const path = require('path');
+// const fs = require('fs');
+// const input = fs.readFileSync(path.join(__dirname, 'dev', 'stdin')).toString().trim().split('\n');
 
-const n = Number(input[0]);
+// const n = Number(input[0]);
 
-const row = new Array(n).fill(0);
+// const row = new Array(n).fill(0);
 
-let cnt = 0;
+// let cnt = 0;
 
-function possible(x) {
-  for (let i = 0; i < x; i++) {
-    if (row[x] === row[i]) return false;
-    if (Math.abs(row[x] - row[i]) === x - i) return false;
-  }
-  return true;
-}
+// function possible(x) {
+//   for (let i = 0; i < x; i++) {
+//     if (row[x] === row[i]) return false;
+//     if (Math.abs(row[x] - row[i]) === x - i) return false;
+//   }
+//   return true;
+// }
 
-function dfs(x) {
-  if (x === n) {
-    cnt += 1;
-    return;
-  }
+// function dfs(x) {
+//   if (x === n) {
+//     cnt += 1;
+//     return;
+//   }
 
-  for (let i = 0; i < n; i++) {
-    row[x] = i;
-    if (possible(x)) dfs(x + 1);
-  }
-}
+//   for (let i = 0; i < n; i++) {
+//     row[x] = i;
+//     if (possible(x)) dfs(x + 1);
+//   }
+// }
 
-dfs(0);
+// dfs(0);
 
-console.log(cnt);
+// console.log(cnt);
 
 //https://www.acmicpc.net/problem/1987
 //난이도 : 골드4
@@ -59,42 +59,42 @@ console.log(cnt);
 배열로 하는 경우 시간초과
 */
 
-const path = require('path');
-const fs = require('fs');
-const input = fs.readFileSync(path.join(__dirname, 'dev', 'stdin')).toString().trim().split('\n');
+// const path = require('path');
+// const fs = require('fs');
+// const input = fs.readFileSync(path.join(__dirname, 'dev', 'stdin')).toString().trim().split('\n');
 
-const [R, C] = input[0].split(' ').map(Number);
-const board = input.splice(1, R).map((r) => r.trim().split(''));
+// const [R, C] = input[0].split(' ').map(Number);
+// const board = input.splice(1, R).map((r) => r.trim().split(''));
 
-const dx = [0, 1, 0, -1];
-const dy = [-1, 0, 1, 0];
+// const dx = [0, 1, 0, -1];
+// const dy = [-1, 0, 1, 0];
 
-function check(x, y) {
-  if (x < 0 || x >= C || y < 0 || y >= R) return false;
-  return true;
-}
+// function check(x, y) {
+//   if (x < 0 || x >= C || y < 0 || y >= R) return false;
+//   return true;
+// }
 
-let answer = 0;
-let arr = new Set([board[0][0]]);
+// let answer = 0;
+// let arr = new Set([board[0][0]]);
 
-function dfs(depth, x, y) {
-  answer = Math.max(answer, depth);
+// function dfs(depth, x, y) {
+//   answer = Math.max(answer, depth);
 
-  for (let i = 0; i < 4; i++) {
-    let _x = x + dx[i];
-    let _y = y + dy[i];
-    if (!check(_x, _y)) continue;
+//   for (let i = 0; i < 4; i++) {
+//     let _x = x + dx[i];
+//     let _y = y + dy[i];
+//     if (!check(_x, _y)) continue;
 
-    if (!arr.has(board[_y][_x])) {
-      arr.add(board[_y][_x]);
-      dfs(depth + 1, _x, _y);
-      arr.delete(board[_y][_x]);
-    }
-  }
-}
+//     if (!arr.has(board[_y][_x])) {
+//       arr.add(board[_y][_x]);
+//       dfs(depth + 1, _x, _y);
+//       arr.delete(board[_y][_x]);
+//     }
+//   }
+// }
 
-dfs(1, 0, 0);
-console.log(answer);
+// dfs(1, 0, 0);
+// console.log(answer);
 
 //https://www.acmicpc.net/problem/2529
 //난이도 : 실버1

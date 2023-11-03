@@ -13,56 +13,56 @@ M : 찾아야 할 카드의 개수
 
 */
 
-const path = require('path');
-const fs = require('fs');
-const input = fs.readFileSync(path.join(__dirname, 'dev', 'stdin')).toString().trim().split('\n');
+// const path = require('path');
+// const fs = require('fs');
+// const input = fs.readFileSync(path.join(__dirname, 'dev', 'stdin')).toString().trim().split('\n');
 
-const N = Number(input[0]);
-const cards = input[1]
-  .split(' ')
-  .map(Number)
-  .sort((a, b) => a - b);
-const M = Number(input[2]);
-const find_cards = input[3].split(' ').map(Number);
+// const N = Number(input[0]);
+// const cards = input[1]
+//   .split(' ')
+//   .map(Number)
+//   .sort((a, b) => a - b);
+// const M = Number(input[2]);
+// const find_cards = input[3].split(' ').map(Number);
 
-function lowerBound(cards, target) {
-  let start = 0;
-  let end = cards.length;
+// function lowerBound(cards, target) {
+//   let start = 0;
+//   let end = cards.length;
 
-  while (start < end) {
-    let mid = parseInt((start + end) / 2);
-    if (cards[mid] >= target) end = mid;
-    else start = mid + 1;
-  }
-  return end;
-}
+//   while (start < end) {
+//     let mid = parseInt((start + end) / 2);
+//     if (cards[mid] >= target) end = mid;
+//     else start = mid + 1;
+//   }
+//   return end;
+// }
 
-function upperBound(cards, target) {
-  let start = 0;
-  let end = cards.length;
+// function upperBound(cards, target) {
+//   let start = 0;
+//   let end = cards.length;
 
-  while (start < end) {
-    let mid = parseInt((start + end) / 2);
-    if (cards[mid] > target) end = mid;
-    else start = mid + 1;
-  }
-  return end;
-}
+//   while (start < end) {
+//     let mid = parseInt((start + end) / 2);
+//     if (cards[mid] > target) end = mid;
+//     else start = mid + 1;
+//   }
+//   return end;
+// }
 
-function countByRange(arr, leftValue, rightValue) {
-  let rightIndex = upperBound(cards, rightValue);
-  let leftIndex = lowerBound(cards, leftValue);
-  return rightIndex - leftIndex;
-}
+// function countByRange(arr, leftValue, rightValue) {
+//   let rightIndex = upperBound(cards, rightValue);
+//   let leftIndex = lowerBound(cards, leftValue);
+//   return rightIndex - leftIndex;
+// }
 
-let answer = [];
+// let answer = [];
 
-for (let i = 0; i < find_cards.length; i++) {
-  let curr = find_cards[i];
-  answer.push(countByRange(cards, curr, curr));
-}
+// for (let i = 0; i < find_cards.length; i++) {
+//   let curr = find_cards[i];
+//   answer.push(countByRange(cards, curr, curr));
+// }
 
-console.log(answer.join(' '));
+// console.log(answer.join(' '));
 
 //https://www.acmicpc.net/problem/18353
 //난이도 : 실버2
@@ -83,36 +83,36 @@ LIS : Longest Increasing Subsequence 알고리즘
 
 */
 
-const path = require('path');
-const fs = require('fs');
-const input = fs.readFileSync(path.join(__dirname, 'dev', 'stdin')).toString().trim().split('\n');
+// const path = require('path');
+// const fs = require('fs');
+// const input = fs.readFileSync(path.join(__dirname, 'dev', 'stdin')).toString().trim().split('\n');
 
-const N = Number(input[0]);
-const soldiers = input[1].split(' ').map(Number);
+// const N = Number(input[0]);
+// const soldiers = input[1].split(' ').map(Number);
 
-soldiers.reverse();
+// soldiers.reverse();
 
-let d = [0]; //LIS 배열
+// let d = [0]; //LIS 배열
 
-function lowerBound(arr, target, start, end) {
-  while (start < end) {
-    let mid = parseInt((start + end) / 2);
-    if (arr[mid] >= target) end = mid;
-    else start = mid + 1;
-  }
-  return end;
-}
+// function lowerBound(arr, target, start, end) {
+//   while (start < end) {
+//     let mid = parseInt((start + end) / 2);
+//     if (arr[mid] >= target) end = mid;
+//     else start = mid + 1;
+//   }
+//   return end;
+// }
 
-for (x of soldiers) {
-  if (d[d.length - 1] < x) {
-    d.push(x);
-  } else {
-    let index = lowerBound(d, x, 0, d.length);
-    d[index] = x;
-  }
-}
+// for (x of soldiers) {
+//   if (d[d.length - 1] < x) {
+//     d.push(x);
+//   } else {
+//     let index = lowerBound(d, x, 0, d.length);
+//     d[index] = x;
+//   }
+// }
 
-console.log(N - (d.length - 1));
+// console.log(N - (d.length - 1));
 
 //https://www.acmicpc.net/problem/1300
 //난이도 : 골드1

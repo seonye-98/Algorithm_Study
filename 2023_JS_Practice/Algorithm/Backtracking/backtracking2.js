@@ -9,29 +9,29 @@
 고른 수열은 오름차순이어야 한다.
 */
 
-const path = require('path');
-const fs = require('fs');
-const input = fs.readFileSync(path.join(__dirname, 'dev', 'stdin')).toString().trim().split('\n');
+// const path = require('path');
+// const fs = require('fs');
+// const input = fs.readFileSync(path.join(__dirname, 'dev', 'stdin')).toString().trim().split('\n');
 
-const [N, M] = input[0].split(' ').map(Number);
+// const [N, M] = input[0].split(' ').map(Number);
 
-let result = [];
+// let result = [];
 
-function permutation(arr) {
-  if (arr.length === M) result.push(arr.join(' '));
-  for (let i = 1; i <= N; i++) {
-    if (!arr.includes(i)) {
-      if (arr.length === 0) permutation([...arr, i]);
-      else if (arr.length > 0 && arr.at(-1) < i) {
-        permutation([...arr, i]);
-      }
-    }
-  }
-}
+// function permutation(arr) {
+//   if (arr.length === M) result.push(arr.join(' '));
+//   for (let i = 1; i <= N; i++) {
+//     if (!arr.includes(i)) {
+//       if (arr.length === 0) permutation([...arr, i]);
+//       else if (arr.length > 0 && arr.at(-1) < i) {
+//         permutation([...arr, i]);
+//       }
+//     }
+//   }
+// }
 
-permutation([]);
+// permutation([]);
 
-console.log(result.join('\n'));
+// console.log(result.join('\n'));
 
 //https://www.acmicpc.net/problem/15651
 //난이도 : 실버3
@@ -42,27 +42,27 @@ console.log(result.join('\n'));
 같은 수를 여러 번 골라도 된다.
 */
 
-const path = require('path');
-const fs = require('fs');
-const input = fs.readFileSync(path.join(__dirname, 'dev', 'stdin')).toString().trim().split('\n');
+// const path = require('path');
+// const fs = require('fs');
+// const input = fs.readFileSync(path.join(__dirname, 'dev', 'stdin')).toString().trim().split('\n');
 
-const [N, M] = input[0].split(' ').map(Number);
+// const [N, M] = input[0].split(' ').map(Number);
 
-let result = [];
+// let result = [];
 
-function permutationWithRepeat(arr) {
-  if (arr.length === M) {
-    result.push(arr.join(' '));
-    return;
-  }
-  for (let i = 1; i <= N; i++) {
-    permutationWithRepeat([...arr, i]);
-  }
-}
+// function permutationWithRepeat(arr) {
+//   if (arr.length === M) {
+//     result.push(arr.join(' '));
+//     return;
+//   }
+//   for (let i = 1; i <= N; i++) {
+//     permutationWithRepeat([...arr, i]);
+//   }
+// }
 
-permutationWithRepeat([]);
+// permutationWithRepeat([]);
 
-console.log(result.join('\n'));
+// console.log(result.join('\n'));
 
 //https://www.acmicpc.net/problem/15651
 //난이도 : 실버3

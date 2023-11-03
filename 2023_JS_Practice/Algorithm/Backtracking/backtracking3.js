@@ -20,46 +20,46 @@ N : 도시의 수
 N개의 줄에는 비용 행렬이 주어진다.
 */
 
-const path = require('path');
-const fs = require('fs');
-const input = fs.readFileSync(path.join(__dirname, 'dev', 'stdin')).toString().trim().split('\n');
+// const path = require('path');
+// const fs = require('fs');
+// const input = fs.readFileSync(path.join(__dirname, 'dev', 'stdin')).toString().trim().split('\n');
 
-const n = Number(input[0]);
-const price = input.splice(1, n).map((row) => row.trim().split(' ').map(Number));
+// const n = Number(input[0]);
+// const price = input.splice(1, n).map((row) => row.trim().split(' ').map(Number));
 
-const cities = [];
-for (let i = 0; i < n; i++) cities.push(i);
+// const cities = [];
+// for (let i = 0; i < n; i++) cities.push(i);
 
-function checkPrice(arr) {
-  let total = 0;
-  for (let i = 0; i < n; i++) {
-    const [arrive, goal] = [...arr].splice(i, 2);
+// function checkPrice(arr) {
+//   let total = 0;
+//   for (let i = 0; i < n; i++) {
+//     const [arrive, goal] = [...arr].splice(i, 2);
 
-    total += price[arrive][goal];
-  }
-  return total;
-}
+//     total += price[arrive][goal];
+//   }
+//   return total;
+// }
 
-let answer = Infinity;
+// let answer = Infinity;
 
-function bfs(arr) {
-  if (arr.length === n && price[arr.at(-1)][0] !== 0) {
-    arr.push(arr[0]);
-    answer = Math.min(answer, checkPrice(arr));
+// function bfs(arr) {
+//   if (arr.length === n && price[arr.at(-1)][0] !== 0) {
+//     arr.push(arr[0]);
+//     answer = Math.min(answer, checkPrice(arr));
 
-    return;
-  }
-  for (let i = 1; i < n; i++) {
-    if (!price[arr.at(-1)][i]) continue;
-    if (!arr.includes(i)) {
-      bfs([...arr, i]);
-    }
-  }
-}
+//     return;
+//   }
+//   for (let i = 1; i < n; i++) {
+//     if (!price[arr.at(-1)][i]) continue;
+//     if (!arr.includes(i)) {
+//       bfs([...arr, i]);
+//     }
+//   }
+// }
 
-bfs([0]);
+// bfs([0]);
 
-console.log(answer);
+//console.log(answer);
 
 //https://www.acmicpc.net/problem/2961
 //난이도 : 실버2
@@ -72,41 +72,41 @@ N개의 재료, 신맛 S와 쓴맛 B를 알고 있다.
 재료는 적어도 하나
 */
 
-const path = require('path');
-const fs = require('fs');
-const input = fs.readFileSync(path.join(__dirname, 'dev', 'stdin')).toString().trim().split('\n');
+// const path = require('path');
+// const fs = require('fs');
+// const input = fs.readFileSync(path.join(__dirname, 'dev', 'stdin')).toString().trim().split('\n');
 
-const n = Number(input[0]);
-const foods = input.splice(1, n).map((food) => food.split(' ').map(Number));
-const index = [];
-for (let i = 0; i < n; i++) index.push(i);
+// const n = Number(input[0]);
+// const foods = input.splice(1, n).map((food) => food.split(' ').map(Number));
+// const index = [];
+// for (let i = 0; i < n; i++) index.push(i);
 
-let result = [];
-let answer = Infinity;
-function combination(arr, depth, len) {
-  if (arr.length === len) {
-    result.push(arr);
-    let taste1 = 1;
-    let taste2 = 0;
-    for (let j = 0; j < arr.length; j++) {
-      const [t1, t2] = foods[arr[j]];
-      taste1 *= t1;
-      taste2 += t2;
-    }
-    answer = Math.min(answer, Math.abs(taste1 - taste2));
+// let result = [];
+// let answer = Infinity;
+// function combination(arr, depth, len) {
+//   if (arr.length === len) {
+//     result.push(arr);
+//     let taste1 = 1;
+//     let taste2 = 0;
+//     for (let j = 0; j < arr.length; j++) {
+//       const [t1, t2] = foods[arr[j]];
+//       taste1 *= t1;
+//       taste2 += t2;
+//     }
+//     answer = Math.min(answer, Math.abs(taste1 - taste2));
 
-    return;
-  }
-  for (let i = depth; i < index.length; i++) {
-    if (!arr.includes(i)) combination([...arr, i], depth + 1, len);
-  }
-}
+//     return;
+//   }
+//   for (let i = depth; i < index.length; i++) {
+//     if (!arr.includes(i)) combination([...arr, i], depth + 1, len);
+//   }
+// }
 
-for (let i = 1; i < n + 1; i++) {
-  combination([], 0, i);
-}
+// for (let i = 1; i < n + 1; i++) {
+//   combination([], 0, i);
+// }
 
-console.log(answer);
+// console.log(answer);
 
 //https://www.acmicpc.net/problem/6603
 //난이도 : 실버2
@@ -114,7 +114,7 @@ console.log(answer);
 
 /*
 49가지 수 중 k개의 수를 골라 집합 S를 만든 다음 그 수만 가지고 번호를 선택
-kC6 계산하면됨
+kC6
 */
 
 const path = require('path');

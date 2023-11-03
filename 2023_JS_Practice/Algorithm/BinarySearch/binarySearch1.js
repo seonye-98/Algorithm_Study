@@ -65,15 +65,15 @@ H가 감소하는 경우 얻을 수 있는 나무의 양이 증가한다.
 
 const path = require('path');
 const fs = require('fs');
-const input = fs.readFileSync(path.join(__dirname, 'dev', 'stdin')).toString().trim().split('\n');
+// const input = fs.readFileSync(path.join(__dirname, 'dev', 'stdin')).toString().trim().split('\n');
 
-const [N, M] = input[0].split(' ').map(Number);
-const trees = input[1].split(' ').map(Number);
+// const [N, M] = input[0].split(' ').map(Number);
+// const trees = input[1].split(' ').map(Number);
 
-let start = 0;
-let end = trees.reduce((a, b) => Math.max(a, b));
+// let start = 0;
+// let end = trees.reduce((a, b) => Math.max(a, b));
 
-let answer;
+// let answer;
 while (start <= end) {
   let result = 0;
   let mid = parseInt((start + end) / 2);
@@ -113,13 +113,13 @@ N개를 만들 수 있는 랜선의 최대길이를 변수로 잡자
 
 const path = require('path');
 const fs = require('fs');
-const input = fs.readFileSync(path.join(__dirname, 'dev', 'stdin')).toString().trim().split('\n');
+// const input = fs.readFileSync(path.join(__dirname, 'dev', 'stdin')).toString().trim().split('\n');
 
-const [K, N] = input[0].split(' ').map(Number);
-const lines = input.splice(1, K).map((line) => Number(line.trim()));
+// const [K, N] = input[0].split(' ').map(Number);
+// const lines = input.splice(1, K).map((line) => Number(line.trim()));
 
-let start = 1;
-let end = lines.reduce((a, b) => Math.max(a, b));
+// let start = 1;
+// let end = lines.reduce((a, b) => Math.max(a, b));
 
 let answer;
 

@@ -6,27 +6,26 @@
 /*
 자연수 N과 M이 주어졌을 때, 1부터 N까지 자연수 중 중복없이 M개를 고른 수열을 구하는 프로그램
 */
+// const path = require('path');
+// const fs = require('fs');
+// const input = fs.readFileSync(path.join(__dirname, 'dev', 'stdin')).toString().trim().split('\n');
 
-const path = require('path');
-const fs = require('fs');
-const input = fs.readFileSync(path.join(__dirname, 'dev', 'stdin')).toString().trim().split('\n');
+// const [N, M] = input[0].split(' ').map(Number);
 
-const [N, M] = input[0].split(' ').map(Number);
+// let result = [];
 
-let result = [];
+// function permutation(arr) {
+//   if (arr.length === M) result.push(arr.join(' '));
+//   for (let i = 1; i <= N; i++) {
+//     if (!arr.includes(i)) {
+//       permutation([...arr, i]);
+//     }
+//   }
+// }
 
-function permutation(arr) {
-  if (arr.length === M) result.push(arr.join(' '));
-  for (let i = 1; i <= N; i++) {
-    if (!arr.includes(i)) {
-      permutation([...arr, i]);
-    }
-  }
-}
+// permutation([]);
 
-permutation([]);
-
-console.log(result.join('\n'));
+// console.log(result.join('\n'));
 
 //https://www.acmicpc.net/problem/10974
 //난이도 : 실버3
@@ -34,27 +33,26 @@ console.log(result.join('\n'));
 /*
 N이 주어졌을 때, 1부터 N까지의 수로 이루어진 순열을 사전순으로 출력하는 프로그램
 */
+// const path = require('path');
+// const fs = require('fs');
+// const input = fs.readFileSync(path.join(__dirname, 'dev', 'stdin')).toString().trim().split('\n');
 
-const path = require('path');
-const fs = require('fs');
-const input = fs.readFileSync(path.join(__dirname, 'dev', 'stdin')).toString().trim().split('\n');
+// const N = Number(input[0]);
 
-const N = Number(input[0]);
+// let result = [];
 
-let result = [];
+// function permutation(arr) {
+//   if (arr.length === N) result.push(arr.join(' '));
+//   for (let i = 1; i <= N; i++) {
+//     if (!arr.includes(i)) {
+//       permutation([...arr, i]);
+//     }
+//   }
+// }
 
-function permutation(arr) {
-  if (arr.length === N) result.push(arr.join(' '));
-  for (let i = 1; i <= N; i++) {
-    if (!arr.includes(i)) {
-      permutation([...arr, i]);
-    }
-  }
-}
+// permutation([]);
 
-permutation([]);
-
-console.log(result.join('\n'));
+// console.log(result.join('\n'));
 
 //https://www.acmicpc.net/problem/7490
 //난이도 : 골드5
@@ -65,7 +63,7 @@ console.log(result.join('\n'));
 이렇게 만든 수식의 값을 계산하고 그 결과가 0이 될 수 있는지 살피자
 N이 주어졌을 때 수식의 결과가 0이 되는 모든 수식을 찾는 프로그램 작성
 
-중복 순열
+중복순열
 */
 const path = require('path');
 const fs = require('fs');
